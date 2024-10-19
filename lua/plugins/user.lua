@@ -1,5 +1,3 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
 -- You can also add or configure plugins by creating files in this `plugins/` folder
 -- Here are some examples:
 
@@ -20,22 +18,24 @@ return {
   -- customize alpha options
   {
     "goolord/alpha-nvim",
-    opts = function(_, opts)
-      -- customize the dashboard header
-      opts.section.header.val = {
-        " █████  ███████ ████████ ██████   ██████",
-        "██   ██ ██         ██    ██   ██ ██    ██",
-        "███████ ███████    ██    ██████  ██    ██",
-        "██   ██      ██    ██    ██   ██ ██    ██",
-        "██   ██ ███████    ██    ██   ██  ██████",
-        " ",
-        "    ███    ██ ██    ██ ██ ███    ███",
-        "    ████   ██ ██    ██ ██ ████  ████",
-        "    ██ ██  ██ ██    ██ ██ ██ ████ ██",
-        "    ██  ██ ██  ██  ██  ██ ██  ██  ██",
-        "    ██   ████   ████   ██ ██      ██",
+    config = function()
+      local dashboard = require("alpha.themes.dashboard")
+
+      dashboard.section.header.val = {
+        '         888      d8b 888 d8b                  ',
+        '         888      Y8P 888 Y8P                  ',
+        '         888          888                      ',
+        ' .d88888 88888b.  888 888 888 88888b.  88888b. ',
+        'd88" 888 888 "88b 888 888 888 888 "88b 888 "88b',
+        '888  888 888  888 888 888 888 888  888 888  888',
+        'Y88b 888 888  888 888 888 888 888 d88P 888 d88P',
+        ' "Y88888 888  888 888 888 888 88888P"  88888P" ',
+        '     888                      888      888     ',
+        '     888                      888      888     ',
+        '     888                      888      888     '
       }
-      return opts
+
+      require("alpha").setup(dashboard.opts)
     end,
   },
 
